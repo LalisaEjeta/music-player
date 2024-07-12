@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music player</title>
+    <link href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="bg-dark">
+    <section style="height: 50px;">
+        <div class="d-flex justify-content-between bg-light  p-2" id="topSec">
+            <div>
+                <img src="./img/logo.png" alt="" width="30px">
+            </div>
+            <div>
+                <input class="rounded rounded-5" type="text">
+                <span> <i class="btn btn-primary bx bx-search" name='search'></i> </span>
+                <i class='btn btn-primary bx bx-sun' id="dark"></i>
+                <img class="rounded rounded-circle" src="./img/pp.avif" alt="" width="30px" height="30px">
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="d-flex text-white">
+            <div class="col-3 overFlowing" id="albums" style="height: calc(100vh - 50px);">
+                <div class="d-flex justify-content-between">
+                    <p>Album list</p>
+                    <span>+</span>
+                </div>
+
+            </div>
+
+            <div class="col-6 overFlowing" id="tracks" style="height: calc(100vh - 50px);">
+                <p>Playing song</p>
+            </div>
+
+            <div class="col-3 overFlowing" id="favList" style="height: calc(100vh - 50px);">
+                <p>Fav list</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

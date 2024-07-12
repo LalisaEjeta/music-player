@@ -1,0 +1,15 @@
+.overFlowing {
+    overflow-y: scroll;
+}
+
+.overFlowing::-webkit-scrollbar {
+    width: 5px;
+}
+
+.overFlowing::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.overFlowing::-webkit-scrollbar-thumb {
+    background: #888;
+}
