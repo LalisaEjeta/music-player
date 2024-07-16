@@ -30,7 +30,20 @@
             <div class="col-3 overFlowing" id="albums" style="height: calc(100vh - 50px);">
                 <div class="d-flex justify-content-between">
                     <p>Album list</p>
-                    <span>+</span>
+                    <span class="myCursor" id="addAlbum">+</span>
+                </div>
+                <div id="albumList">
+                    <!-- <p class="myCursor bg-info rounded p-1">Album 2</p> -->
+                    <!-- <p class="myCursor bg-info rounded p-1">Album 3</p> -->
+                    <div class="myCursor d-flex justify-content-between flex-row bg-info rounded m-1" id="tryy">
+                        <p class="">Album 1</p>
+                        <span> <i class='bx bxs-heart' id="albumFav"></i></span>
+                    </div>
+                </div>
+                <div id="songList">
+                    <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
+                    <button class="rounded rounded-circle" type="button" id="uploadButton">+</button>
+                    <input class="d-none" type="file" id="uploadHere">
                 </div>
 
             </div>
@@ -40,9 +53,30 @@
             </div>
 
             <div class="col-3 overFlowing" id="favList" style="height: calc(100vh - 50px);">
-                <p>Fav list</p>
+                <h3>Fav song list</h3>
+                <div>
+                    <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
+                    <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
+                    <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
+                    <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
+                    <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
+                </div>
+                <div id="favAlbums">
+                    <h3>Fav albums</h3>
+                    <p>Album 1</p>
+                    <p>Album 2</p>
+                    <p>Album 3</p>
+                    <p>Album 4</p>
+                </div>
             </div>
         </div>
+        <dialog id="albumName">
+            <input type="text" name="" id="nameofAlbum">
+            <div class="m-1">
+                <button class="btn btn-success" id="createAlbum">Create album</button>
+                <button class="btn btn-success" id="closeBtn">Close</button>
+            </div>
+        </dialog>
     </section>
 
 

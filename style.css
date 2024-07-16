@@ -13,3 +13,9 @@
 .overFlowing::-webkit-scrollbar-thumb {
     background: #888;
 }
+
+.myCursor {
+    cursor: pointer;
+}
+
+
