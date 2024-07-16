@@ -8,6 +8,7 @@
     <link href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="./img/logo.png">
     <link rel="stylesheet" href="./style.css">
 </head>
 
@@ -30,22 +31,23 @@
             <div class="col-3 overFlowing" id="albums" style="height: calc(100vh - 50px);">
                 <div class="d-flex justify-content-between">
                     <p>Album list</p>
-                    <span class="myCursor" id="addAlbum">+</span>
+                    <span class="myCursor" id="addAlbum"><i class='bx bxs-folder-plus' id="albumFav"></i></span>
                 </div>
                 <div id="albumList">
-                    <!-- <p class="myCursor bg-info rounded p-1">Album 2</p> -->
-                    <!-- <p class="myCursor bg-info rounded p-1">Album 3</p> -->
-                    <div class="myCursor d-flex justify-content-between flex-row bg-info rounded m-1" id="tryy">
-                        <p class="">Album 1</p>
-                        <span> <i class='bx bxs-heart' id="albumFav"></i></span>
+                    <div class="myCursor d-flex flex-column border border- rounded rounded-3" id="myAlbum">
+                        <div class="d-flex flex-row justify-content-between bg-info">
+                            <p class="mx-2">Album 1</p>
+                            <div class="d-flex flex-row p-1">
+                                <span> <i class='bx bxs-heart' id="albumFav"></i></span>
+                                <p class="mx-2" id="deleteAlbum"><i class='bx bx-window-close'></i></p>
+                                <div id="songList">
+                                    <i class='rounded rounded-circle bx bxs-message-square-add' id="uploadButton"></i>
+                                    <input class="d-none" type="file" id="uploadHere">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div id="songList">
-                    <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
-                    <button class="rounded rounded-circle" type="button" id="uploadButton">+</button>
-                    <input class="d-none" type="file" id="uploadHere">
-                </div>
-
             </div>
 
             <div class="col-6 overFlowing" id="tracks" style="height: calc(100vh - 50px);">
