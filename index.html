@@ -18,11 +18,11 @@
             <div>
                 <img src="./img/logo.png" alt="" width="30px">
             </div>
-            <div>
-                <input class="rounded rounded-5" type="text">
-                <span> <i class="btn btn-primary bx bx-search" name='search'></i> </span>
-                <i class='btn btn-primary bx bx-sun' id="dark"></i>
-                <img class="rounded rounded-circle" src="./img/pp.avif" alt="" width="30px" height="30px">
+            <div class="d-flex flex-row align-items-center">
+                <input class="rounded rounded-5 mx-1" type="text">
+                <span> <i class="btn btn-primary bx bx-search mx-1" name='search'></i> </span>
+                <i class='btn btn-primary bx bx-sun mx-1' id="dark"></i>
+                <img class="rounded rounded-circle mx-1" src="./img/pp.avif" alt="" width="30px" height="30px">
             </div>
         </div>
     </section>
@@ -34,7 +34,7 @@
                     <span class="myCursor" id="addAlbum"><i class='bx bxs-folder-plus' id="albumFav"></i></span>
                 </div>
                 <div id="albumList">
-                    <div class="myCursor d-flex flex-column border border- rounded rounded-3" id="myAlbum">
+                    <div class="myCursor d-flex flex-column border rounded rounded-3" id="myAlbum">
                         <div class="d-flex flex-row justify-content-between bg-info">
                             <p class="mx-2">Album 1</p>
                             <div class="d-flex flex-row p-1">
@@ -52,23 +52,21 @@
 
             <div class="col-6 overFlowing" id="tracks" style="height: calc(100vh - 50px);">
                 <p>Playing song</p>
+                <div class="d-flex flex-row align-items-center">
+                    <audio src="./audio/01 Track 1.mp3" controls style="height: 20px;"></audio>
+                    <span><i class='myCursor p-1 bx bxs-heart' id="albumFav"></i></span>
+                </div>                
             </div>
 
             <div class="col-3 overFlowing" id="favList" style="height: calc(100vh - 50px);">
                 <h3>Fav song list</h3>
-                <div>
-                    <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
-                    <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
-                    <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
+                <div id="favSongslist">
                     <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
                     <audio controls src="./audio/01 Track 1.mp3" type="audio/mpeg" style="height: 20px;"></audio>
                 </div>
                 <div id="favAlbums">
                     <h3>Fav albums</h3>
-                    <p>Album 1</p>
-                    <p>Album 2</p>
-                    <p>Album 3</p>
-                    <p>Album 4</p>
+                    <p>Ben Fuller</p>
                 </div>
             </div>
         </div>

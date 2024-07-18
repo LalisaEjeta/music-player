@@ -11,6 +11,7 @@ const favAlbums = document.getElementById("favAlbums");
 const albumName = document.getElementById("albumName");
 const deleteAlbum = document.getElementById("deleteAlbum");
 const myAlbum = document.getElementById("myAlbum");
+const favSongslist = document.getElementById("favSongslist");
 
 dark.addEventListener("click", () => {
   body.classList.toggle("bg-dark");
@@ -24,7 +25,8 @@ addAlbum.addEventListener("click", () => {
 createAlbum.addEventListener("click", () => {
   if (nameofAlbum.value) {
     const albumCont = document.createElement("div");
-    albumCont.className = "myCursor d-flex flex-column my-3 border rounded rounded-3";
+    albumCont.className =
+      "myCursor d-flex flex-column my-3 border rounded rounded-3";
     albumCont.id = "myAlbum";
 
     const albumHeader = document.createElement("div");
@@ -40,35 +42,85 @@ createAlbum.addEventListener("click", () => {
     const favIcon = document.createElement("span");
     const favIconContent = document.createElement("i");
     favIconContent.className = "bx bxs-heart";
-    favIconContent.id = "albumFav";
     favIcon.appendChild(favIconContent);
+    favIcon.addEventListener("click", () => {
+      favIconContent.classList.toggle("text-danger");
+      if (favIconContent.classList.contains("text-danger")) {
+        // Cloning and appending favorite album icon
+        const newClonedTryy = albumCont.cloneNode(true);
+        favAlbums.appendChild(newClonedTryy);
+        favIconContent.clonedNode = newClonedTryy;
+      } else {
+        // Removing cloned favorite album icon
+        if (favIconContent.clonedNode) {
+          favAlbums.removeChild(favIconContent.clonedNode);
+          favIconContent.clonedNode = null;
+        }
+      }
+    });
 
     const deleteIcon = document.createElement("p");
     deleteIcon.className = "mx-2";
-    deleteIcon.id = "deleteAlbum";
     const deleteIconContent = document.createElement("i");
     deleteIconContent.className = "bx bx-window-close";
     deleteIcon.appendChild(deleteIconContent);
+    deleteIcon.addEventListener("click", () => {
+      // albumCont.remove()
+      if (favIconContent.clonedNode === albumCont) {
+        favAlbums.removeChild(favIconContent.clonedNode);
+        favIconContent.clonedNode = null;
+      }
+      albumCont.remove();
+    });
 
     const songList = document.createElement("div");
     songList.id = "songList";
     const uploadButton = document.createElement("i");
     uploadButton.className = "rounded rounded-circle bx bxs-message-square-add";
-    uploadButton.id = "uploadButton";
     const uploadInput = document.createElement("input");
     uploadInput.className = "d-none";
     uploadInput.type = "file";
-    uploadInput.id = "uploadHere";
     uploadButton.addEventListener("click", () => {
       uploadInput.click();
     });
+
     uploadInput.addEventListener("change", (event) => {
-      const files = event.target.files;
-      if (files.length > 0) {
-        alert(`File ${files[0].name} selected`);
-        // Handle file upload here
+      const file = event.target.files[0];
+      if (file) {
+        const songCont = document.createElement("div");
+        songCont.className = "d-flex flex-row align-items-center";
+        const zeSong = document.createElement("audio");
+        zeSong.type = "audio/mp3";
+        zeSong.className = "m-2";
+        zeSong.style.height = "30px";
+        zeSong.src = URL.createObjectURL(file);
+        zeSong.controls = true;
+        const favZesong = document.createElement("i");
+        favZesong.className = "myCursor p-1 bx bxs-heart";
+        songCont.appendChild(zeSong);
+        songCont.appendChild(favZesong);
+        albumCont.appendChild(songCont);
+
+        favZesong.addEventListener("click", () => {
+          favZesong.classList.toggle("text-danger");
+          if (favZesong.classList.contains("text-danger")) {
+            // Cloning and appending favorite song icon
+            const clonedSong = songCont.cloneNode(true);
+            favSongslist.appendChild(clonedSong);
+            favZesong.clonedNode = clonedSong;
+          } else {
+            // Removing cloned favorite song icon
+            if (favZesong.clonedNode) {
+              favSongslist.removeChild(favZesong.clonedNode);
+              favZesong.clonedNode = null;
+            }
+          }
+        });
+      } else {
+        alert("Failed to upload file. Please try again.");
       }
     });
+
     songList.appendChild(uploadButton);
     songList.appendChild(uploadInput);
 
@@ -86,7 +138,6 @@ createAlbum.addEventListener("click", () => {
   } else {
     alert("Please enter a name");
   }
-  albumName.close();
 });
 
 closeBtn.addEventListener("click", () => {
@@ -111,11 +162,3 @@ uploadHere.addEventListener("change", () => {
 albumFav.addEventListener("click", () => {
   albumFav.classList.toggle("bg-danger");
 });
-
-// if (albumFav.classList.contains("text-danger")) {
-//   let newClonedTryy = tryy.cloneNode(true);
-//   favAlbums.appendChild(newClonedTryy);
-//   albumFav.clonedNode = newClonedTryy;
-// } else {
-//   favAlbums.removeChild(albumFav.clonedNode);
-// }
