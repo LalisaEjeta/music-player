@@ -8,6 +8,7 @@
     <link href=https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="icon" href="./img/logo.png">
     <link rel="stylesheet" href="./style.css">
 </head>
@@ -50,12 +51,27 @@
                 </div>
             </div>
 
-            <div class="col-6 overFlowing" id="tracks" style="height: calc(100vh - 50px);">
-                <p>Playing song</p>
-                <div class="d-flex flex-row align-items-center">
-                    <audio src="./audio/01 Track 1.mp3" controls style="height: 20px;"></audio>
-                    <span><i class='myCursor p-1 bx bxs-heart' id="albumFav"></i></span>
-                </div>                
+            <div class="d-flex justify-content-center align-items-center col-6 overFlowing" id="tracks" style="height: calc(100vh - 50px); background-image: url(./img/bg.jpg);">
+                <div class="neo g-info d-flex flex-column p-2 justify-content-center align-items-center" style="height: 50vh;">
+                    <div>
+                        <h1>Album name</h1>
+                        <div>
+                            <p id="nowTi"></p>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                        <audio src="./audio/01 Track 1.mp3" controls style="height: 20px;" id="faaruu"></audio>
+                    </div>
+                    <div>
+                        <div>
+                            <i class='btn btn-primary bx bx-skip-previous' ></i>
+                            <i class="material-icons btn btn-success rounded rounded-pill" id="playBtn">play_arrow</i>
+                            <span class="btn btn-success rounded rounded-pill material-icons " id="repeatBtn">repeat</span>
+                            <i class='btn btn-primary bx bx-skip-next' ></i>
+                        </div>
+                        <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="0">
+                    </div>
+                </div>
             </div>
 
             <div class="col-3 overFlowing" id="favList" style="height: calc(100vh - 50px);">

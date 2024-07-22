@@ -12,6 +12,39 @@ const albumName = document.getElementById("albumName");
 const deleteAlbum = document.getElementById("deleteAlbum");
 const myAlbum = document.getElementById("myAlbum");
 const favSongslist = document.getElementById("favSongslist");
+const repeatBtn = document.getElementById("repeatBtn");
+const playBtn = document.getElementById("playBtn");
+const faaruu = document.getElementById("faaruu");
+
+
+// Format time function
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const secs = Math.floor(seconds % 60);
+  return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+}
+
+
+repeatBtn.addEventListener("click", () => {
+  if (repeatBtn.innerText === "repeat") {
+    repeatBtn.innerText = "repeat_one";
+    faaruu.loop = true;  // Set loop to true for repeat
+  } else {
+    repeatBtn.innerText = "repeat";
+    faaruu.loop = false; // Set loop to false for no repeat
+  }
+});
+
+
+playBtn.addEventListener("click", () => {
+  if (playBtn.innerText === "play_arrow") {
+    playBtn.innerText = "pause";
+    faaruu.play()
+  } else {
+    playBtn.innerText = "play_arrow";
+    faaruu.pause()
+  }
+});
 
 dark.addEventListener("click", () => {
   body.classList.toggle("bg-dark");
@@ -65,7 +98,6 @@ createAlbum.addEventListener("click", () => {
     deleteIconContent.className = "bx bx-window-close";
     deleteIcon.appendChild(deleteIconContent);
     deleteIcon.addEventListener("click", () => {
-      // albumCont.remove()
       if (favIconContent.clonedNode === albumCont) {
         favAlbums.removeChild(favIconContent.clonedNode);
         favIconContent.clonedNode = null;
@@ -95,8 +127,11 @@ createAlbum.addEventListener("click", () => {
         zeSong.style.height = "30px";
         zeSong.src = URL.createObjectURL(file);
         zeSong.controls = true;
+        const songName = document.createElement("p");
+        songName.textContent = file.name;
         const favZesong = document.createElement("i");
         favZesong.className = "myCursor p-1 bx bxs-heart";
+        songCont.appendChild(songName);
         songCont.appendChild(zeSong);
         songCont.appendChild(favZesong);
         albumCont.appendChild(songCont);
@@ -162,3 +197,23 @@ uploadHere.addEventListener("change", () => {
 albumFav.addEventListener("click", () => {
   albumFav.classList.toggle("bg-danger");
 });
+
+
+
+
+
+const muLen = document.getElementById("muLen");
+const volumeControl = document.getElementById("volumeControl");
+const nowTi = document.getElementById("nowTi");
+
+faaruu.addEventListener("loadedmetadata", () => {
+  muLen.textContent = faaruu.duration
+})
+
+volumeControl.addEventListener("input", () => {
+  faaruu.volume = volumeControl.value;
+});
+
+faaruu.addEventListener("timeupdate", () => {
+  nowTi.textContent = `${formatTime(faaruu.currentTime)} / ${formatTime(faaruu.duration)}`
+})

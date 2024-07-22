@@ -1,21 +1,25 @@
 .overFlowing {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 .overFlowing::-webkit-scrollbar {
-    width: 5px;
+  width: 5px;
 }
 
 .overFlowing::-webkit-scrollbar-track {
-    background: #f1f1f1;
+  background: #f1f1f1;
 }
 
 .overFlowing::-webkit-scrollbar-thumb {
-    background: #888;
+  background: #888;
 }
 
 .myCursor {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-
+.neo {
+  border-radius: 50px;
+  background: #6d6464;
+  box-shadow: 20px 20px 60px #5d5555, -20px -20px 60px #7d7373;
+}
